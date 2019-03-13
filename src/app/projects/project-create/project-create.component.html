@@ -1,0 +1,55 @@
+<mat-card>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <mat-toolbar><h3 class="card-title">Project Details</h3></mat-toolbar>
+  <form [formGroup]=form (submit)="onSaveProject()" *ngIf="!isLoading">
+    <mat-form-field>
+      <input
+       matInput
+       type="text"
+       name="title"
+       formControlName="title"
+       placeholder="Project Title"
+      >
+      <mat-error
+      *ngIf="form.get('title').invalid">
+          Please enter a post title
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea
+      matInput
+      rows="4"
+      name="description"
+      formControlName="description"
+      placeholder="Project Description"
+      ></textarea>
+      <mat-error
+        *ngIf="form.get('description').invalid">
+            Please enter a small Project description
+          </mat-error>
+  </mat-form-field>
+
+
+
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="addedDate"
+    formControlName="addedDate">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error
+      *ngIf="form.get('addedDate').invalid">
+        Please select a start date
+        </mat-error>
+  </mat-form-field>
+
+
+
+
+<button
+mat-raised-button
+color="accent"
+type="submit"
+>Add Project</button>
+  </form>
+</mat-card>

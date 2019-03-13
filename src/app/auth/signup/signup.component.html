@@ -1,0 +1,53 @@
+<div class = "container">
+    <div id="signup">
+      <div class="signup-screen">
+        <div class="space-bot text-center">
+          <h1>Registration</h1>
+          <div class="divider"></div>
+        </div>
+        <form class="form-register" (submit)="onSignup(signupform)" #signupform ="ngForm" >
+
+            <mat-form-field>
+                <input
+                 matInput
+                 ngModel
+                 #emailInput="ngModel"
+                 type="email"
+                 name="email"
+                 placeholder="Please Enter Your Email"
+                 email
+                >
+                <mat-error
+                *ngIf="">
+                    Please enter your email
+                  </mat-error>
+              </mat-form-field>
+
+
+
+              <mat-form-field>
+                  <input
+                   matInput
+                   ngModel
+                   #passwordInput="ngModel"
+                   type="password"
+                   name="password"
+                   placeholder="Please Enter Your Password"
+                   password
+                  >
+                  <mat-error
+                  *ngIf="">
+                      Please enter your Password
+                    </mat-error>
+                </mat-form-field>
+
+<button
+mat-raised-button
+type="submit"
+>Sign Up</button>
+
+
+        </form>
+      </div>
+    </div>
+  </div>
