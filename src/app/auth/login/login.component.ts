@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit, OnDestroy{
      }
      this.isLoading = true;
     this.authService.loginUser(form.value.email, form.value.password);
+    this.router.navigate['/'];
 
    }
 

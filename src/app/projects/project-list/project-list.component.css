@@ -1,7 +1,10 @@
 
-
-.mat-card{
+.project-holder{
+  background-color: #009688;
   display: flex;
+}
+.mat-card{
+
   width: 30%;
   align-items: center;
   margin: 2rem;

@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProjectListComponent } from './projects/project-list/project-list.component';
 import { ProjectCreateComponent } from './projects/project-create/project-create.component';
 import {SignUpComponent} from './auth/signup/signup.component';
+import { ProjectBoardCreateComponent } from './project-board/project-board-create/pb-create.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,10 @@ const routes: Routes = [
   },
   {
     path: 'login', component: LoginComponent
-  }
+  },
+  {
+    path: 'board/:projectId', component: ProjectBoardCreateComponent, canActivate: [AuthGuard]
+   }
 ]
 
 @NgModule({

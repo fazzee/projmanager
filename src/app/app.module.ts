@@ -1,3 +1,4 @@
+import { ProjectBoardCreateComponent } from './project-board/project-board-create/pb-create.component';
 import { AuthInterceptor } from './auth/auth-interceptor';
 import { ProjectListComponent } from './projects/project-list/project-list.component';
 
@@ -11,6 +12,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 
+//Angular Material CDK Modules
+
+import {DragDropModule} from '@angular/cdk/drag-drop';
+
+
 // Angular Material Modules
 
 import {MatCardModule,
@@ -21,7 +27,8 @@ import {MatCardModule,
   MatDatepickerModule,
   MatNativeDateModule,
   MatSlideToggleModule,
-  MatProgressSpinnerModule} from '@angular/material';
+  MatProgressSpinnerModule,
+  MatChipsModule} from '@angular/material';
 
 // Custom Component
 
@@ -37,6 +44,7 @@ import {SignUpComponent} from './auth/signup/signup.component';
     HeaderComponent,
     ProjectCreateComponent,
     ProjectListComponent,
+    ProjectBoardCreateComponent,
     SignUpComponent,
     LoginComponent
 
@@ -55,6 +63,8 @@ import {SignUpComponent} from './auth/signup/signup.component';
     MatNativeDateModule,
     MatSlideToggleModule,
     MatProgressSpinnerModule,
+    MatChipsModule,
+    DragDropModule,
     BrowserAnimationsModule,
     HttpClientModule,
 

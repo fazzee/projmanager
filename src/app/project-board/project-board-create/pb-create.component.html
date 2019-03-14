@@ -1,0 +1,21 @@
+
+<div class="boards">
+<mat-card>
+<mat-toolbar><h3 class="card-title">To Do</h3></mat-toolbar>
+<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let movie of movies" cdkDrag>{{movie}}
+    <a mat-button color="primary" [routerLink]="['/create-task']">EDIT</a>
+    <button mat-button color="warn" (click)="onDeleteProject(project.id)">DELETE</button>
+    </div>
+    <a mat-button color="primary" [routerLink]="['/create-task']">Create New Task</a>
+  </div>
+</mat-card>
+
+
+<mat-card>
+    <mat-toolbar><h3 class="card-title">Doing</h3></mat-toolbar>
+    <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let movie of movies" cdkDrag>{{movie}}</div>
+      </div>
+    </mat-card>
+</div>
