@@ -6,7 +6,7 @@ const boards = Object.freeze({
   done: 'done',
 });
 
-const boardSchema = mongoose.Schema({
+const taskSchema = mongoose.Schema({
   name : {
     type: String,
     required: true
@@ -27,4 +27,4 @@ const boardSchema = mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model("Project", boardSchema);
+module.exports = mongoose.model("Task", taskSchema);
