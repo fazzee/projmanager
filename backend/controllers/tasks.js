@@ -93,7 +93,7 @@ exports.deleteTask = (req, res, next) => {
   }).catch(error => {
     res.status(501).json({
       message: "Task is not deleted Server error"
-    })
-  })
+    });
+  });
 }
 

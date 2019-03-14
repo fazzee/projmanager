@@ -3,6 +3,7 @@ import { Projects } from './project.model';
 import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 
 
@@ -11,7 +12,7 @@ export class ProjectService{
 private projects : Projects[] = [];
 private projectUpdated = new Subject<{project: Projects[]}>();
 
-constructor(private http: HttpClient){}
+constructor(private http: HttpClient, private router: Router){}
 
 getProjectUpdateListener(){
   return this.projectUpdated.asObservable();
@@ -51,7 +52,7 @@ const projectData = {
 
 this.http.post<{message: string, project: Projects}>("http://localhost:3000/api/projects", projectData)
 .subscribe(response => {
-  console.log(response);
+  this.router.navigate(['/']);
 });
 }
 
