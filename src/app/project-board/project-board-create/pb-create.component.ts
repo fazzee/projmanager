@@ -1,5 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import { Tasks } from '../task.model';
+import {FormGroup, FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { TaskService } from '../task.service';
 
 
 
@@ -11,18 +16,19 @@ import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 export class ProjectBoardCreateComponent implements OnInit, OnDestroy{
   isLoading = false;
   userIsAuthenticated = false;
+  tasks: Tasks[];
 
 
-  movies = [
-    'Episode I - The Phantom Menace',
-    'Episode II - Attack of the Clones',
-    'Episode III - Revenge of the Sith',
-    'Episode IV - A New Hope',
-    'Episode V - The Empire Strikes Back',
-    'Episode VI - Return of the Jedi',
-    'Episode VII - The Force Awakens',
-    'Episode VIII - The Last Jedi'
-  ];
+  // movies = [
+  //   'Episode I - The Phantom Menace',
+  //   'Episode II - Attack of the Clones',
+  //   'Episode III - Revenge of the Sith',
+  //   'Episode IV - A New Hope',
+  //   'Episode V - The Empire Strikes Back',
+  //   'Episode VI - Return of the Jedi',
+  //   'Episode VII - The Force Awakens',
+  //   'Episode VIII - The Last Jedi'
+  // ];
 
  ngOnInit(){
 

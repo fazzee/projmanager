@@ -3,11 +3,26 @@
 <mat-card>
 <mat-toolbar><h3 class="card-title">To Do</h3></mat-toolbar>
 <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-    <div class="example-box" *ngFor="let movie of movies" cdkDrag>{{movie}}
-    <a mat-button color="primary" [routerLink]="['/create-task']">EDIT</a>
-    <button mat-button color="warn" (click)="onDeleteProject(project.id)">DELETE</button>
+    <div class="example-box" *ngFor="let task of tasks" cdkDrag>{{task}}
+    <button mat-button color="primary" (click)="onChangeTask(task.id)">EDIT</button>
+    <button mat-button color="warn" (click)="onDeleteTask(task.id)">DELETE</button>
     </div>
-    <a mat-button color="primary" [routerLink]="['/create-task']">Create New Task</a>
+    <button mat-button color="primary" (click)="onCreateTask(task.id)">CREATE A NEW TASK</button>
+    <form [formGroup]=form (submit)="onSaveProject()" *ngIf="!isLoading">
+    <mat-form-field>
+        <input
+         matInput
+         type="text"
+         name="title"
+         formControlName="title"
+         placeholder="Task Name"
+        >
+        <mat-error
+        *ngIf="form.get('title').invalid">
+            Please enter a post title
+          </mat-error>
+      </mat-form-field>
+    </form>
   </div>
 </mat-card>
 
@@ -15,7 +30,12 @@
 <mat-card>
     <mat-toolbar><h3 class="card-title">Doing</h3></mat-toolbar>
     <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let movie of movies" cdkDrag>{{movie}}</div>
+        <div class="example-box" *ngFor="let task of tasks" cdkDrag>{{task}}
+
+        <button mat-button color="primary" (click)="onChangeTask(task.id)">EDIT</button>
+        <button mat-button color="warn" (click)="onDeleteTask(task.id)">DELETE</button>
+        </div>
+        <button mat-button color="primary" (click)="onCreateTask(task.id)">CREATE A NEW TASK</button>
       </div>
     </mat-card>
 </div>
